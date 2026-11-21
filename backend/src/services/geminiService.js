@@ -343,9 +343,11 @@ Do not include markdown fences, backticks, or additional commentary. Return pure
   // Supported Gemini Flash models in priority order
   const candidateModels = [
     process.env.GEMINI_MODEL,
+    'gemini-3.5-flash',
+    'gemini-3.5-flash-lite',
+    'gemini-2.5-flash',
     'gemini-2.0-flash',
-    'gemini-1.5-flash',
-    'gemini-2.5-flash'
+    'gemini-1.5-flash'
   ].filter(Boolean);
 
   let lastError = null;
