@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://civicresolve-3cfk.onrender.com/api' : '/api');
 
 const api = axios.create({
   baseURL: API_BASE,

@@ -335,8 +335,10 @@ Do not include markdown fences, backticks, or additional commentary. Return pure
         data: imageBase64
       }
     });
+    contents.push({ text: promptText });
+  } else {
+    contents.push(promptText);
   }
-  contents.push(promptText);
 
   // Supported Gemini Flash models in priority order
   const candidateModels = [
