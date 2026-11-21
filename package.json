@@ -1,0 +1,22 @@
+{
+  "name": "civicresolve",
+  "version": "1.0.0",
+  "description": "CivicResolve - AI-Powered Citizen Grievance Management and Resolution Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "backend:test": "cd backend && npm test",
+    "frontend:build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "civicresolve",
+    "gemini-ai",
+    "citizen-grievance",
+    "smart-city",
+    "react",
+    "express"
+  ],
+  "author": "CivicResolve Team",
+  "license": "MIT"
+}

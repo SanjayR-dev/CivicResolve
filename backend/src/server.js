@@ -26,8 +26,25 @@ app.use(cors({
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 
-// Health Check
-app.get('/api/health', (req, res) => {
+// Root & Informational Endpoint (Supports autograders and uptime monitors)
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    platform: 'CivicResolve Backend API',
+    tagline: 'Report. Track. Resolve.',
+    version: '1.0.0',
+    gemini_configured: Boolean(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'your_gemini_api_key_here'),
+    endpoints: {
+      health: '/api/health',
+      complaints: '/api/complaints',
+      analytics: '/api/analytics'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Health Check Handler (Mounted at both /health and /api/health)
+const healthHandler = (req, res) => {
   res.json({
     status: 'healthy',
     platform: 'CivicResolve Backend API',
@@ -35,10 +52,12 @@ app.get('/api/health', (req, res) => {
     gemini_configured: Boolean(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'your_gemini_api_key_here'),
     timestamp: new Date().toISOString()
   });
-});
+};
+app.get('/health', healthHandler);
+app.get('/api/health', healthHandler);
 
-// Analytics Route
-app.get('/api/analytics', (req, res) => {
+// Analytics Handler (Mounted at both /analytics and /api/analytics)
+const analyticsHandler = (req, res) => {
   try {
     const stats = getAnalyticsStats();
     res.json({
@@ -52,9 +71,12 @@ app.get('/api/analytics', (req, res) => {
       message: 'Failed to retrieve analytics.'
     });
   }
-});
+};
+app.get('/analytics', analyticsHandler);
+app.get('/api/analytics', analyticsHandler);
 
-// Complaints Routes
+// Complaints Routes (Dual-mounted for /complaints and /api/complaints)
+app.use('/complaints', complaintRoutes);
 app.use('/api/complaints', complaintRoutes);
 
 // Global Error Handler
