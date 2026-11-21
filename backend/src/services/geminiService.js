@@ -242,28 +242,72 @@ function runFallbackClassification(title, description, fallbackReason = 'Algorit
 }
 
 /**
- * Validates the parsed AI response against required schema and domain rules.
+ * Validates and normalizes the parsed AI response against required schema and domain rules.
  */
-function validateAIResponse(parsed) {
-  if (!parsed || typeof parsed !== 'object') return false;
-  if (!VALID_CATEGORIES.includes(parsed.category)) return false;
-  if (!VALID_PRIORITIES.includes(parsed.priority)) return false;
+function normalizeAndValidateAIResponse(parsed) {
+  if (!parsed || typeof parsed !== 'object') return null;
 
-  const score = parsed.urgencyScore !== undefined ? parsed.urgencyScore : parsed.urgency_score;
-  if (typeof score !== 'number' || score < 0 || score > 100) return false;
+  // 1. Normalize Category
+  let category = parsed.category || '';
+  if (!VALID_CATEGORIES.includes(category)) {
+    const catLower = String(category).toLowerCase();
+    if (catLower.includes('road') || catLower.includes('pothole') || catLower.includes('traffic') || catLower.includes('bridge') || catLower.includes('asphalt') || catLower.includes('highway')) {
+      category = 'Road Infrastructure';
+    } else if (catLower.includes('sanitat') || catLower.includes('waste') || catLower.includes('garbage') || catLower.includes('trash') || catLower.includes('clean')) {
+      category = 'Sanitation';
+    } else if (catLower.includes('electr') || catLower.includes('power') || catLower.includes('utilit') || catLower.includes('light') || catLower.includes('wire') || catLower.includes('transformer')) {
+      category = 'Electricity';
+    } else if (catLower.includes('water') || catLower.includes('pipe') || catLower.includes('leak') || catLower.includes('drinking')) {
+      category = 'Water Supply';
+    } else if (catLower.includes('drain') || catLower.includes('sewer') || catLower.includes('sewage') || catLower.includes('manhole')) {
+      category = 'Drainage';
+    } else if (catLower.includes('safe') || catLower.includes('hazard') || catLower.includes('police') || catLower.includes('fire') || catLower.includes('security')) {
+      category = 'Public Safety';
+    } else {
+      category = 'Other';
+    }
+  }
 
-  if (!parsed.subcategory || typeof parsed.subcategory !== 'string') return false;
+  // 2. Normalize Priority
+  let priority = parsed.priority || '';
+  const prioLower = String(priority).toLowerCase();
+  if (prioLower.includes('crit')) priority = 'Critical';
+  else if (prioLower.includes('high')) priority = 'High';
+  else if (prioLower.includes('low')) priority = 'Low';
+  else priority = 'Medium';
 
-  const dept = parsed.department || parsed.assigned_department;
-  if (!dept || typeof dept !== 'string') return false;
+  // 3. Normalize Urgency Score
+  let rawScore = parsed.urgencyScore !== undefined ? parsed.urgencyScore : parsed.urgency_score;
+  let urgencyScore = parseInt(rawScore, 10);
+  if (isNaN(urgencyScore)) {
+    urgencyScore = priority === 'Critical' ? 95 : priority === 'High' ? 80 : priority === 'Medium' ? 50 : 25;
+  }
+  urgencyScore = Math.max(0, Math.min(100, urgencyScore));
 
-  const rationale = parsed.rationale || parsed.classification_explanation;
-  if (!rationale || typeof rationale !== 'string') return false;
+  // 4. Subcategory
+  const subcategory = String(parsed.subcategory || parsed.sub_category || `${category} Issue`).trim();
 
-  const action = parsed.recommendedAction || parsed.suggested_action;
-  if (!action || typeof action !== 'string') return false;
+  // 5. Department
+  let department = parsed.department || parsed.assigned_department;
+  if (!department || typeof department !== 'string' || department.length < 3) {
+    department = DEPARTMENT_MAP[category] || 'General Grievance Redressal Cell';
+  }
 
-  return true;
+  // 6. Rationale
+  const rationale = String(parsed.rationale || parsed.classification_explanation || `Identified as ${category} issue with ${priority} priority based on civic risk assessment.`).trim();
+
+  // 7. Recommended Action
+  const recommendedAction = String(parsed.recommendedAction || parsed.suggested_action || `Dispatch ${department} field crew for immediate assessment and remediation.`).trim();
+
+  return {
+    category,
+    subcategory,
+    priority,
+    urgencyScore,
+    department,
+    rationale,
+    recommendedAction
+  };
 }
 
 /**
@@ -340,14 +384,14 @@ Do not include markdown fences, backticks, or additional commentary. Return pure
     contents.push(promptText);
   }
 
-  // Supported Gemini Flash models in priority order
+  // Supported Gemini Flash models in priority order (gemini-3.5-flash-lite has lowest latency and highest availability)
   const candidateModels = [
     process.env.GEMINI_MODEL,
-    'gemini-3.5-flash',
     'gemini-3.5-flash-lite',
-    'gemini-2.5-flash',
-    'gemini-2.0-flash',
-    'gemini-1.5-flash'
+    'gemini-3.5-flash',
+    'gemini-3.1-flash-lite',
+    'gemini-3.8-flash',
+    'gemini-3.6-flash'
   ].filter(Boolean);
 
   let lastError = null;
@@ -356,38 +400,42 @@ Do not include markdown fences, backticks, or additional commentary. Return pure
     try {
       console.log(`[Gemini Engine] Attempting analysis using model: ${model}...`);
       const ai = new GoogleGenAI({ apiKey });
-      const response = await ai.models.generateContent({
-        model,
-        contents,
-        config: {
-          responseMimeType: 'application/json'
-        }
-      });
+      
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error(`Model ${model} request timed out after 8000ms`)), 8000)
+      );
+
+      const response = await Promise.race([
+        ai.models.generateContent({
+          model,
+          contents,
+          config: {
+            responseMimeType: 'application/json'
+          }
+        }),
+        timeoutPromise
+      ]);
 
       const responseText = response.text?.trim() || '';
       const cleanJson = responseText.replace(/^```json\s*/i, '').replace(/```$/i, '').trim();
       const parsed = JSON.parse(cleanJson);
+      const normalized = normalizeAndValidateAIResponse(parsed);
 
-      if (validateAIResponse(parsed)) {
-        const urgencyScore = typeof parsed.urgencyScore === 'number' ? parsed.urgencyScore : (parsed.urgency_score || 50);
-        const department = parsed.department || parsed.assigned_department || 'General Grievance Redressal Cell';
-        const rationale = parsed.rationale || parsed.classification_explanation || 'Classified based on civic risk assessment.';
-        const recommendedAction = parsed.recommendedAction || parsed.suggested_action || 'Dispatch field crew for inspection.';
-
-        console.log(`[Gemini Engine] Success with ${model}! Priority: ${parsed.priority}, Urgency: ${urgencyScore}`);
+      if (normalized) {
+        console.log(`[Gemini Engine] Success with ${model}! Priority: ${normalized.priority}, Urgency: ${normalized.urgencyScore}`);
 
         return {
-          category: parsed.category,
-          subcategory: parsed.subcategory,
-          priority: parsed.priority,
-          urgencyScore,
-          urgency_score: urgencyScore,
-          department,
-          assigned_department: department,
-          rationale,
-          classification_explanation: rationale,
-          recommendedAction,
-          suggested_action: recommendedAction,
+          category: normalized.category,
+          subcategory: normalized.subcategory,
+          priority: normalized.priority,
+          urgencyScore: normalized.urgencyScore,
+          urgency_score: normalized.urgencyScore,
+          department: normalized.department,
+          assigned_department: normalized.department,
+          rationale: normalized.rationale,
+          classification_explanation: normalized.rationale,
+          recommendedAction: normalized.recommendedAction,
+          suggested_action: normalized.recommendedAction,
           ai_status: 'success',
           isGeminiResult: true,
           is_ai_generated: true,
@@ -396,7 +444,7 @@ Do not include markdown fences, backticks, or additional commentary. Return pure
           analyzed_at: new Date().toISOString()
         };
       } else {
-        console.warn(`[Gemini Engine] Response from ${model} did not conform to schema:`, parsed);
+        console.warn(`[Gemini Engine] Response from ${model} could not be normalized:`, parsed);
       }
     } catch (err) {
       console.warn(`[Gemini Engine] Model ${model} failed:`, err.message);
