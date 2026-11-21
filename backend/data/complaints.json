@@ -1,0 +1,414 @@
+[
+  {
+    "id": "CR-2026-3419",
+    "title": "Severe crater and exposed water pipeline on Ring Road",
+    "description": "A 5-foot crater has collapsed into the roadbed following yesterday heavy storm. An underground main drinking water pipe is exposed and leaking, and vehicles are swerving dangerously into oncoming traffic.",
+    "location": "Outer Ring Road, Near Marathahalli Bridge",
+    "coordinates": null,
+    "imageUrl": null,
+    "category": "Water Supply",
+    "subcategory": "Low Pressure / Minor Line Leakage",
+    "priority": "Medium",
+    "urgencyScore": 58,
+    "urgency_score": 58,
+    "department": "Municipal Water Supply & Sewerage Board",
+    "assigned_department": "Municipal Water Supply & Sewerage Board",
+    "status": "Reported",
+    "rationale": "Minor distribution inconsistency affecting local civic supply.",
+    "classification_explanation": "Minor distribution inconsistency affecting local civic supply.",
+    "recommendedAction": "Inspect feeder valve calibration during next scheduled maintenance.",
+    "suggested_action": "Inspect feeder valve calibration during next scheduled maintenance.",
+    "ai_status": "error_fallback",
+    "isGeminiResult": false,
+    "is_ai_generated": false,
+    "engine_name": "Heuristic Rule Engine (Fallback)",
+    "model_used": null,
+    "citizen_name": "Anita Roy",
+    "citizen_contact": "anita.roy@example.com",
+    "created_at": "2026-11-21T10:26:59.814Z",
+    "updated_at": "2026-11-21T10:26:59.814Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T10:26:59.814Z",
+        "remarks": "Grievance submitted by citizen and logged in CivicResolve platform.",
+        "updated_by": "Citizen / Platform Entry"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8927",
+    "title": "Exposed live wires sparking near school bus shelter",
+    "description": "High voltage overhead cable snapped during rain and is sparking continuously on wet ground 5 meters from children waiting for school bus.",
+    "location": "Mount Road Junction, Near City Central School",
+    "coordinates": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "imageUrl": null,
+    "category": "Electricity",
+    "subcategory": "High Voltage / Exposed Live Wire Hazard",
+    "priority": "Critical",
+    "urgencyScore": 98,
+    "urgency_score": 98,
+    "department": "State Electricity Distribution Board",
+    "assigned_department": "State Electricity Distribution Board",
+    "status": "Reported",
+    "rationale": "Direct mortal electrocution and fire threat on civic corridor.",
+    "classification_explanation": "Direct mortal electrocution and fire threat on civic corridor.",
+    "recommendedAction": "Isolate feeder circuit breaker remotely and dispatch lineman van immediately.",
+    "suggested_action": "Isolate feeder circuit breaker remotely and dispatch lineman van immediately.",
+    "ai_status": "fallback_heuristic",
+    "isGeminiResult": false,
+    "is_ai_generated": false,
+    "engine_name": "Heuristic Rule Engine (Fallback)",
+    "model_used": null,
+    "citizen_name": "Suresh Kumar",
+    "citizen_contact": "9840123456",
+    "created_at": "2026-11-21T10:20:18.342Z",
+    "updated_at": "2026-11-21T10:20:18.342Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T10:20:18.342Z",
+        "remarks": "Grievance submitted by citizen and logged in CivicResolve platform.",
+        "updated_by": "Citizen / Platform Entry"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-9963",
+    "title": "Severe Pothole on 80 Feet Road",
+    "description": "Deep crater causing traffic slowdown and near bike accidents",
+    "location": "80 Feet Road, 4th Block, Koramangala",
+    "coordinates": {
+      "lat": 12.9345,
+      "lng": 77.6256
+    },
+    "imageUrl": "data:image/jpeg;base64,ZmFrZWpwZWdkYXRh",
+    "category": "Road Infrastructure",
+    "subcategory": "Hazardous Road Defect / Sinkhole",
+    "priority": "Critical",
+    "urgency_score": 96,
+    "assigned_department": "Public Works Department (PWD)",
+    "status": "Reported",
+    "classification_explanation": "High-risk road deformation posing imminent collision or vehicle damage threat.",
+    "suggested_action": "Barricade danger zone immediately and deploy hot-mix asphalt team.",
+    "ai_status": "fallback_heuristic",
+    "is_ai_generated": false,
+    "citizen_name": "Concerned Citizen",
+    "citizen_contact": "",
+    "created_at": "2026-11-21T10:12:32.081Z",
+    "updated_at": "2026-11-21T10:12:32.081Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T10:12:32.081Z",
+        "remarks": "Grievance submitted by citizen and logged in CivicResolve platform.",
+        "updated_by": "Citizen / Platform Entry"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-9288",
+    "title": "Burst Water Main Flooding Street",
+    "description": "High pressure water gushing from pipeline near school gate",
+    "location": "Sector 9 Main Cross",
+    "coordinates": null,
+    "imageUrl": null,
+    "category": "Water Supply",
+    "subcategory": "High-Volume Main Pipeline Burst",
+    "priority": "Critical",
+    "urgency_score": 93,
+    "assigned_department": "Municipal Water Supply & Sewerage Board",
+    "status": "In Progress",
+    "classification_explanation": "Severe drinking water pipeline rupture causing roadway flooding and municipal resource loss.",
+    "suggested_action": "Isolate sector valve immediately and deploy emergency hydraulic welding crew.",
+    "ai_status": "fallback_heuristic",
+    "is_ai_generated": false,
+    "citizen_name": "Concerned Citizen",
+    "citizen_contact": "",
+    "created_at": "2026-11-21T07:32:12.268Z",
+    "updated_at": "2026-11-21T07:32:18.165Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T07:32:12.268Z",
+        "remarks": "Grievance submitted by citizen and logged in CivicResolve platform.",
+        "updated_by": "Citizen / Platform Entry"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-11-21T07:32:18.165Z",
+        "remarks": "Dispatched Water Board team with backhoe",
+        "updated_by": "Admin: Water Board Officer"
+      }
+    ],
+    "remarks": "Dispatched Water Board team with backhoe",
+    "updated_by": "Admin: Water Board Officer"
+  },
+  {
+    "id": "CR-2026-4960",
+    "title": "Burst Water Main Flooding Street",
+    "description": "High pressure water gushing from pipeline near school gate",
+    "location": "Sector 9 Main Cross",
+    "coordinates": null,
+    "imageUrl": null,
+    "category": "Other",
+    "subcategory": "General Civic Concern",
+    "priority": "Medium",
+    "urgency_score": 50,
+    "assigned_department": "General Grievance Redressal Cell",
+    "status": "Reported",
+    "classification_explanation": "Classified via algorithmic rule-based fallback based on semantic keyword density.",
+    "suggested_action": "Dispatch field officer for preliminary assessment within 48 hours.",
+    "ai_status": "fallback_heuristic",
+    "is_ai_generated": false,
+    "citizen_name": "Concerned Citizen",
+    "citizen_contact": "",
+    "created_at": "2026-11-21T07:31:29.079Z",
+    "updated_at": "2026-11-21T07:31:29.079Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T07:31:29.079Z",
+        "remarks": "Grievance submitted by citizen and logged in CivicResolve platform.",
+        "updated_by": "Citizen / Platform Entry"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8801",
+    "title": "Dangerous Sinkhole Opening on 4th Main Crossroad",
+    "description": "Deep sinkhole measuring approx 4ft across has caved in next to the public school bus stop. Pavement collapsing rapidly under heavy traffic.",
+    "location": "4th Main Road, Near St. Mary's Academy, Sector 4",
+    "coordinates": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=800&q=80",
+    "category": "Road Infrastructure",
+    "subcategory": "Hazardous Road Defect / Sinkhole",
+    "priority": "Critical",
+    "urgency_score": 96,
+    "assigned_department": "Public Works Department (PWD)",
+    "status": "In Progress",
+    "classification_explanation": "Severe immediate hazard situated directly adjacent to a school transit zone with imminent risk of vehicular collapse.",
+    "suggested_action": "Erect immediate perimeter barriers and deploy rapid concrete backfill crew.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Anita Sharma",
+    "citizen_contact": "anita.s@example.com",
+    "created_at": "2026-11-19T19:25:19.865Z",
+    "updated_at": "2026-11-21T01:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-19T19:25:19.867Z",
+        "remarks": "Grievance registered via CivicResolve Citizen Portal. AI triage assigned Critical priority.",
+        "updated_by": "System / AI Triage"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-11-21T01:25:19.867Z",
+        "remarks": "Site inspected by Junior Engineer M. Rao. Barricades placed; excavation crew mobilized.",
+        "updated_by": "Admin: PWD Division Office"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8802",
+    "title": "Major Drinking Water Pipe Fracture & Street Flooding",
+    "description": "Treated potable water distribution line cracked near Metro Pillar 142. Clean water gushing at high pressure, submerging pedestrian pathway.",
+    "location": "Outer Ring Road, Metro Pillar 142, Indiranagar",
+    "coordinates": {
+      "lat": 12.9784,
+      "lng": 77.6408
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb18f156f?auto=format&fit=crop&w=800&q=80",
+    "category": "Water Supply",
+    "subcategory": "Major Main Pipeline Burst",
+    "priority": "Critical",
+    "urgency_score": 92,
+    "assigned_department": "Municipal Water Supply & Sewerage Board",
+    "status": "Reported",
+    "classification_explanation": "High-volume wastage of purified civic drinking water paired with localized pedestrian roadway inundation.",
+    "suggested_action": "Isolate sector sluice valve and initiate emergency pipe clamp replacement.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Rahul Verma",
+    "citizen_contact": "rahul.v@example.com",
+    "created_at": "2026-11-21T03:25:19.867Z",
+    "updated_at": "2026-11-21T03:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-21T03:25:19.867Z",
+        "remarks": "Reported with geocoded coordinates. Dispatched notification to Water Board rapid response.",
+        "updated_by": "System / AI Triage"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8803",
+    "title": "Overflowing Commercial Trash Compactor & Foul Odor",
+    "description": "Municipal waste bin near vegetable market has been uncollected for 5 days. Garbage spilled onto road blocking half the lane and creating health hazard.",
+    "location": "Gandhi Market South Gate, Old City Area",
+    "coordinates": {
+      "lat": 12.965,
+      "lng": 77.581
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?auto=format&fit=crop&w=800&q=80",
+    "category": "Sanitation",
+    "subcategory": "Illegal Garbage Dumping / Waste Overflow",
+    "priority": "High",
+    "urgency_score": 76,
+    "assigned_department": "Municipal Sanitation & Waste Management",
+    "status": "In Progress",
+    "classification_explanation": "Significant public health risk and bio-burden near fresh food vending zone with traffic restriction.",
+    "suggested_action": "Deploy dual hydraulic compactor trucks and disinfect ground with lime powder.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Sunil Kulkarni",
+    "citizen_contact": "sunil.k@example.com",
+    "created_at": "2026-11-20T03:25:19.867Z",
+    "updated_at": "2026-11-20T21:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-20T03:25:19.867Z",
+        "remarks": "Complaint received and categorized as Sanitation priority.",
+        "updated_by": "System / AI Triage"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-11-20T21:25:19.867Z",
+        "remarks": "Compactor vehicle assigned (Truck #KA-03-9122). Waste clearing underway.",
+        "updated_by": "Admin: Sanitation Supervisor"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8804",
+    "title": "Open Storm Drain Manhole on Pedestrian Sidewalk",
+    "description": "Cast iron manhole lid missing on sidewalk. Multiple pedestrians have narrowly avoided falling in during evening hours.",
+    "location": "17th Cross, Residential Layout Phase 2, Koramangala",
+    "coordinates": {
+      "lat": 12.9352,
+      "lng": 77.6245
+    },
+    "imageUrl": null,
+    "category": "Drainage",
+    "subcategory": "Open / Missing Manhole Cover",
+    "priority": "Critical",
+    "urgency_score": 95,
+    "assigned_department": "Stormwater & Drainage Maintenance Wing",
+    "status": "Resolved",
+    "classification_explanation": "Extreme fall hazard on designated footway creating severe threat to life, particularly after sundown.",
+    "suggested_action": "Immediate barricade placement followed by standard heavy-duty cast concrete lid installation.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Priya Nair",
+    "citizen_contact": "priya.n@example.com",
+    "created_at": "2026-11-18T07:25:19.867Z",
+    "updated_at": "2026-11-20T17:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-18T07:25:19.867Z",
+        "remarks": "Emergency civic hazard reported by citizen.",
+        "updated_by": "System / AI Triage"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-11-19T07:25:19.867Z",
+        "remarks": "Warning cones placed by traffic wardens. Replacement slab ordered from central depot.",
+        "updated_by": "Admin: Ward 142 Engineer"
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-11-20T17:25:19.867Z",
+        "remarks": "Reinforced composite cover successfully fitted and level tested. Site cleared.",
+        "updated_by": "Admin: Ward 142 Engineer"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8805",
+    "title": "Flickering & Completely Dark Streetlights on Hospital Road",
+    "description": "Four consecutive streetlights out along the ambulance ingress corridor leading to General Hospital. The road is pitch dark at night.",
+    "location": "Hospital Approach Road, Ward 22, Jayanagar",
+    "coordinates": {
+      "lat": 12.9299,
+      "lng": 77.5833
+    },
+    "imageUrl": null,
+    "category": "Electricity",
+    "subcategory": "Streetlight Fixture Malfunction",
+    "priority": "Medium",
+    "urgency_score": 58,
+    "assigned_department": "State Electricity Distribution Board",
+    "status": "Resolved",
+    "classification_explanation": "Lighting failure in a critical emergency transit area impacting nocturnal visibility and safety.",
+    "suggested_action": "Test phase cable loop and replace defective 90W LED driver modules.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Dr. K. S. Raman",
+    "citizen_contact": "ksraman@example.com",
+    "created_at": "2026-11-17T07:25:19.867Z",
+    "updated_at": "2026-11-20T11:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-17T07:25:19.867Z",
+        "remarks": "Reported by hospital administration.",
+        "updated_by": "System / AI Triage"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-11-19T15:25:19.867Z",
+        "remarks": "Electrical crew dispatched with bucket lifter van.",
+        "updated_by": "Admin: Electrical Substation 4"
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-11-20T11:25:19.867Z",
+        "remarks": "Replaced 3 blown LED driver units and restored lighting along 200m stretch.",
+        "updated_by": "Admin: Electrical Substation 4"
+      }
+    ]
+  },
+  {
+    "id": "CR-2026-8806",
+    "title": "Aggressive Stray Pack Encircling Park Play Area",
+    "description": "Pack of 8-10 aggressive stray canines congregating around children's play area in public garden. Two park visitors chased yesterday.",
+    "location": "Netaji Subhash Park, Children's Play Zone, West Enclave",
+    "coordinates": {
+      "lat": 12.985,
+      "lng": 77.5533
+    },
+    "imageUrl": null,
+    "category": "Public Safety",
+    "subcategory": "Public Threat / Civic Hazard",
+    "priority": "High",
+    "urgency_score": 72,
+    "assigned_department": "Civic Safety & Law Enforcement Dept",
+    "status": "Reported",
+    "classification_explanation": "Direct threat to vulnerable populations (children and elderly) within recreational civic premises.",
+    "suggested_action": "Mobilize Animal Husbandry Squad for humane capture, vaccination, and sterilization protocol.",
+    "ai_status": "success",
+    "is_ai_generated": true,
+    "citizen_name": "Deepak Mehta",
+    "citizen_contact": "deepak.m@example.com",
+    "created_at": "2026-11-20T19:25:19.867Z",
+    "updated_at": "2026-11-20T19:25:19.867Z",
+    "status_history": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-11-20T19:25:19.867Z",
+        "remarks": "Complaint forwarded to Animal Control & Welfare wing.",
+        "updated_by": "System / AI Triage"
+      }
+    ]
+  }
+]
